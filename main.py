@@ -42,6 +42,7 @@ async def rate_limiter(request: Request, call_next):
                 headers={
                     "Retry-After": str(retry_after),
                     "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Expose-Headers": "Retry-After",
                 },
             )
     return await call_next(request)
